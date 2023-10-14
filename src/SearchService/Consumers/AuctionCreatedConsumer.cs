@@ -19,6 +19,9 @@ public class AuctionCreatedConsumer : IConsumer<AuctionCreated>
 
         var item = _mapper.Map<Item>(context.Message);
 
+        if (item.Model == "Foo") throw new ArgumentException("Foo is not a valid model");
+
+
         await item.SaveAsync();
     }
 }
