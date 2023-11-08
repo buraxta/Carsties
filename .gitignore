@@ -475,3 +475,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+
+frontend/web-app/node_modules
+frontend/web-app/.gitignore
+frontend/web-app/next-env.d.ts
