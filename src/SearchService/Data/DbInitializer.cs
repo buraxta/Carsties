@@ -25,8 +25,9 @@ public class DbInitializer
 
         var items = await httpClient.GetItemsForSearchDb();
 
-        Console.WriteLine(items.Count + "records fetched from AuctionService");
-
+        Console.WriteLine(items.Count + " records fetched from AuctionService");
+        // write items to console
+        Console.WriteLine(JsonSerializer.Serialize(items));
         if (items.Count > 0)
         {
             await DB.SaveAsync(items);

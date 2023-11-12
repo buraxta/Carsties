@@ -12,7 +12,8 @@ public class SearchController : ControllerBase
     {
         var query = DB.PagedSearch<Item, Item>();
 
-        // query.Sort(x => x.Ascending(a => a.Make));
+
+
 
         if (!string.IsNullOrEmpty(searchParams.SearchTerm))
         {
@@ -47,9 +48,11 @@ public class SearchController : ControllerBase
 
         var result = await query.ExecuteAsync();
 
+
+
         return Ok(new
         {
-            result = result.Results,
+            results = result.Results,
             pageCount = result.PageCount,
             totalCount = result.TotalCount,
         });

@@ -1,9 +1,30 @@
+import Image from "next/image";
 import React from "react";
 
 type Props = {
   auction: any;
 };
 
-export default function AuctionCard(props: Props) {
-  return <div>{props.auction.make}</div>;
+async function getData() {
+  const res = await fetch("http://localhost:6001/search");
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+
+  return res.json();
+}
+
+export default async function AuctionCard({ auction }: Props) {
+  return (
+    <a href="#">
+      <div className="w-full bg-gray-200 aspect-video rounded-lg overflow-hidden">
+        <Image
+          src={auction.imageUrl}
+          alt="image"
+          fill
+          className="object-cover"
+        />
+      </div>
+    </a>
+  );
 }

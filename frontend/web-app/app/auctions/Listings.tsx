@@ -14,9 +14,9 @@ export default async function Listings() {
   const data = await getData();
 
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-6">
       {data &&
-        data.result.map((auction: any) => (
+        data.results.map((auction: any) => (
           <AuctionCard key={auction.id} auction={auction} />
         ))}
     </div>
