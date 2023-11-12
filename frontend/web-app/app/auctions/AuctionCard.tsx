@@ -5,25 +5,26 @@ type Props = {
   auction: any;
 };
 
-async function getData() {
-  const res = await fetch("http://localhost:6001/search");
-  if (!res.ok) {
-    throw new Error(`HTTP error! status: ${res.status}`);
-  }
-
-  return res.json();
-}
-
 export default async function AuctionCard({ auction }: Props) {
   return (
     <a href="#">
-      <div className="w-full bg-gray-200 aspect-video rounded-lg overflow-hidden">
-        <Image
-          src={auction.imageUrl}
-          alt="image"
-          fill
-          className="object-cover"
-        />
+      <div className="w-full bg-gray-200 aspect-w-16 aspect-h-10 rounded-lg overflow-hidden">
+        <div>
+          <Image
+            src={auction.imageUrl}
+            alt="image"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          />
+        </div>
+      </div>
+      <div className="flex justify-between items-center mt-4">
+        <h3 className="text-gray-700">
+          {auction.make} {auction.model}
+        </h3>
+        <p className="font-semibold text-sm">{auction.year}</p>
       </div>
     </a>
   );
