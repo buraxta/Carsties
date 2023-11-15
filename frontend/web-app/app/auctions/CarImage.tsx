@@ -25,11 +25,7 @@ export default function CarImage({ imageUrl }: Props) {
         }
         `}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-<<<<<<< HEAD
       onLoad={() => setIsLoading(false)}
-=======
-      onLoadingComplete={() => setIsLoading(false)}
->>>>>>> dd81a9c91247bc7be3b7dfc39517f14fd7584c08
     />
   );
 }
